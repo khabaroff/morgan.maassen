@@ -7,21 +7,53 @@
     <title>Foundation | Welcome</title>
     <link rel="stylesheet" href="css/foundation.css" />
     <link rel="stylesheet" href="css/app.css" />
+    <script src="js/vendor/jquery.min.js"></script>
+    <script src="js/app.js"></script>
   </head>
   <body>
 
     <div class="wrapper">
 
-        <iframe class="bgvid" src="//coub.com/embed/aycg2?muted=true&autostart=true&originalSize=false&hideTopBar=true&startWithHD=true" allowfullscreen="true" frameborder="0" width="100%" height="100%"></iframe><script async src="//c-cdn.coub.com/embed-runner.js"></script>
-
-
-      <!--<iframe class="bgvid"  frameborder="0" src="http://coub.com/view/aycg2.gifv"></iframe>-->
+      <video autoplay loop="" muted="" poster="" class="bgvid">
+        <source src="http://storage.akamai.coub.com/get/b221/p/coub/simple/cw_file/a6edbd8ee22/74a6d127dfbc0fd001fb8/muted_mp4_big_size_1455295865_muted_big.mp4" type="video/mp4">
+      </video>
 
 
     </div>
 
 
-    <script src="js/vendor/jquery.min.js"></script>
-    <script src="js/app.js"></script>
+    <div class="coublogo">
+
+
+    </div>
+
+
+
+    <script>
+
+      $.getJSON( "js/data.json", function( json ) {
+
+
+
+        var a = Math.floor(Math.random()*133);
+        $('video').attr('poster', json[a].pic);
+        $('video').attr("src", json[a].video);
+
+        $(".coublogo" ).click(function() {
+
+          var a = Math.floor(Math.random()*133);
+          $('video').attr('poster', json[a].pic);
+          $('video').attr("src", json[a].video)
+
+        });
+
+      });
+
+
+
+    </script>
+
+
+
   </body>
 </html>
